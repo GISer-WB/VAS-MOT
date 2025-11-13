@@ -28,4 +28,4 @@ sh make.sh
 python test.py		# [Optional]
 ```
 
-⚠️ mamba-ssm can be cownload from [mamba]([https://](https://github.com/state-spaces/mamba/releases/tag/v2.2.4)) and install via pip.
+⚠️ mamba-ssm can be cownload from [mamba](https://github.com/state-spaces/mamba/releases/tag/v2.2.4) and install via pip.
