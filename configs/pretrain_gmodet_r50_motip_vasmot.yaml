@@ -1,0 +1,32 @@
+SUPER_CONFIG_PATH: ./configs/gmodet_r50_motip_vasmot.yaml
+
+DATASETS: [MOT17]
+DATASET_SPLITS: [train]
+DATASET_WEIGHTS: [1]            # Different weights for different datasets
+
+SAMPLE_LENGTHS: [1]                   # Only sampling one frame for detection
+
+# Pre-training in a smaller resolution:
+AUG_RESIZE_SCALES: [480, 576, 672, 768]
+AUG_MAX_SIZE: 768
+AUG_RANDOM_RESIZE: [576, 672]
+# AUG_RANDOM_CROP_MIN: 384
+# AUG_RANDOM_CROP_MAX: 600
+# INFERENCE_MAX_SIZE: 1333
+
+DETR_PRETRAIN: #./pretrains/r50_deformable_detr_coco.pth   # Pretrain from COCO checkpoint
+DETR_NUM_TRAIN_FRAMES: 10                               # >> BS
+
+# Train Setting:
+TRAIN_STAGE: only_detr
+EPOCHS: 30
+LR: 1.0e-4
+LR_WARMUP_EPOCHS: 0
+SCHEDULER_MILESTONES: [25, ]
+SCHEDULER_GAMMA: 0.1
+BATCH_SIZE: 4
+ACCUMULATE_STEPS: 1
+
+# Eval:
+INFERENCE_ONLY_DETR: True
+SAVE_CHECKPOINT_PER_EPOCH: 5
