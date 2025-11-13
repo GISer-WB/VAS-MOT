@@ -29,3 +29,44 @@ python test.py		# [Optional]
 ```
 
 ⚠️ mamba-ssm can be cownload from [mamba](https://github.com/state-spaces/mamba/releases/tag/v2.2.4) and install via pip.
+
+## Useage
+
+1. train
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python main.py \
+        --mode train \
+        --use-wandb False \
+        --config-path ./configs/gmodet_r50_motip_vasmot.yaml \
+        --data-root ./datasets4MOTIP/ \
+        --outputs-dir ./outputs/gmodet_r50_motip_vasmot/
+```
+
+2. test
+
+```
+CUDA_VISIBLE_DEVICES=0 python main.py \
+        --mode eval \
+        --use-wandb False \
+        --config-path ./configs/gmodet_r50_motip_vasmot.yaml \
+        --inference-config-path ./configs/gmodet_r50_motip_vasmot.yaml \
+        --data-root ./datasets4MOTIP/ \
+        --outputs-dir ./outputs/gmodet_r50_motip_vasmot/ \
+        --inference-model ./outputs/gmodet_r50_motip_vasmot/checkpoint_xx.pth
+```
+
+## Evalution
+
+First, `cd TrackEval, then run `python scripts/run_mot_challenge.py --BENCHMARK MOT15 --TRACKERS_TO_EVAL VAS-MOT
+
+To evaluate your results,
+
+* put your results in `TrackEval/data/trackers/mot_challenge/MOT15-train/VAS-MOT`,
+* run `python scripts/run_mot_challenge.py --BENCHMARK MOT15 --TRACKERS_TO_EVAL VAS-MOT`
+
+The specific path and data format can be adjusted according to your own data format.
+
+## Acknowledgements
+
+This project is built upon [MOTIP](https://github.com/Annzstbl/MOTIP), [RT-DETR](https://github.com/lyuwenyu/RT-DETR), [Deformable DETR](https://github.com/fundamentalvision/Deformable-DETR), [MOTR](https://github.com/megvii-research/MOTR), [DAB-Deformable DETR](https://github.com/IDEA-Research/DAB-DETR), [TrackEval](https://github.com/JonathonLuiten/TrackEval). Thanks to the contributors of these great codebases.
