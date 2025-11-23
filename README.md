@@ -58,12 +58,12 @@ CUDA_VISIBLE_DEVICES=0 python main.py \
 
 ## Evalution
 
-First, `cd TrackEval, then run `python scripts/run_mot_challenge.py --BENCHMARK MOT15 --TRACKERS_TO_EVAL VAS-MOT
+First, `cd TrackEval, then run `python scripts/run_mot_challenge.py --TRACKERS_TO_EVAL VAS-MOT
 
 To evaluate your results,
 
-* put your results in `TrackEval/data/trackers/mot_challenge/MOT15-train/VAS-MOT`,
-* run `python scripts/run_mot_challenge.py --BENCHMARK MOT15 --TRACKERS_TO_EVAL VAS-MOT`
+* put your results in `TrackEval/data/trackers/mot_challenge/MOT15-val/VAS-MOT`,
+* run `python scripts/run_mot_challenge.py --TRACKERS_TO_EVAL VAS-MOT`
 
 The specific path and data format can be adjusted according to your own data format.
 
