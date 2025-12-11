@@ -5,7 +5,7 @@
 
 ## Update
 - [x] 🎉 Pre-trained weights will come soon.
-- [x] 🍀  [2025/11/13] Released the VAS-MOT code；
+- [x] 🍀  [2025/11/23] Released the VAS-MOT code；
 
 ## Installation
 
